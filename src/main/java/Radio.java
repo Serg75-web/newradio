@@ -1,8 +1,8 @@
 public class Radio {
 
-    public int currentVolume;
+    private int currentVolume;
 
-    public int currentStation;
+    private int currentStation;
 
 
     public void increaseVolume() {
