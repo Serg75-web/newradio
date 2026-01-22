@@ -1,8 +1,30 @@
 public class Radio {
 
     private int currentVolume;
-
     private int currentStation;
+    private int numberStation = 10;
+    private int lastStation = numberStation - 1;
+
+    public Radio(int numberStation) {
+        this.numberStation = numberStation;
+    }
+
+    public int getNumberStation() {
+        return numberStation;
+    }
+
+    public int getLastStation() {
+        return lastStation;
+    }
+
+    public void setLastStation(int newLastStation) {
+        lastStation = newLastStation - 1;
+    }
+
+    public Radio() {
+        currentStation = numberStation;
+
+    }
 
 
     public void increaseVolume() {
