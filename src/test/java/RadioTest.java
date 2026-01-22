@@ -115,7 +115,7 @@ public class RadioTest {
     @Test
     public void shouldStationMore1() {
 
-        more.setCurrentStation(9);
+        more.setCurrentStation(10);
 
         more.next();
 
@@ -146,7 +146,7 @@ public class RadioTest {
 
         more.prev();
 
-        int expected = 9;
+        int expected = 10;
         int actual = more.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
