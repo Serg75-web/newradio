@@ -5,7 +5,7 @@ public class Radio {
     private int numberStation = 10;
     private int lastStation = numberStation - 1;
 
-    public Radio(int numberStation) {
+    public Radio(int numberStation) { // 1 конструктор с параметром - количеством станций
         this.numberStation = numberStation;
     }
 
@@ -21,7 +21,7 @@ public class Radio {
         lastStation = newLastStation - 1;
     }
 
-    public Radio() {
+    public Radio() { // 2 конструктор без параметров
         currentStation = numberStation;
 
     }
