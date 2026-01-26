@@ -1,8 +1,30 @@
 public class Radio {
 
     private int currentVolume;
-
     private int currentStation;
+    private int numberStation = 10;
+    private int lastStation = numberStation - 1;
+
+    public Radio(int numberStation) { // 1 конструктор с параметром - количеством станций
+        this.numberStation = numberStation;
+    }
+
+    public int getNumberStation() {
+        return numberStation;
+    }
+
+    public int getLastStation() {
+        return lastStation;
+    }
+
+    public void setLastStation(int newLastStation) {
+        lastStation = newLastStation - 1;
+    }
+
+    public Radio() { // 2 конструктор без параметров
+        currentStation = numberStation;
+
+    }
 
 
     public void increaseVolume() {
@@ -41,7 +63,7 @@ public class Radio {
     }
 
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > 10) {
             return;
         }
         if (newCurrentStation < 0) {
@@ -51,7 +73,7 @@ public class Radio {
     }
 
     public void next() {
-        if (currentStation < 9) {
+        if (currentStation < 10) {
             currentStation += 1;
         } else {
             currentStation = 0;
@@ -62,7 +84,7 @@ public class Radio {
         if (currentStation > 0) {
             currentStation -= 1;
         } else {
-            currentStation = 9;
+            currentStation = 10;
         }
     }
 }
