@@ -2,37 +2,15 @@ public class Radio {
 
     private int currentVolume;
     private int currentStation;
-    private int numberStation = 10;
-    private int lastStation = numberStation - 1;
+    private int maxStation;
+
 
     public Radio(int numberStation) { // 1 конструктор с параметром - количеством станций
-        this.numberStation = numberStation;
-    }
-
-    public int getNumberStation() {
-        return numberStation;
-    }
-
-    public int getLastStation() {
-        return lastStation;
-    }
-
-    public void setLastStation(int newLastStation) {
-        lastStation = newLastStation - 1;
+        this.maxStation = numberStation - 1;
     }
 
     public Radio() { // 2 конструктор без параметров
-        currentStation = numberStation;
-
-    }
-
-
-    public void increaseVolume() {
-        if (currentVolume < 100) {
-            currentVolume += 1;
-        } else {
-            currentVolume = 0;
-        }
+        this.maxStation = 9;
 
     }
 
@@ -40,51 +18,43 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 100) {
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
             return;
         }
-        if (newCurrentVolume < 0) {
+        if (currentVolume > 100) {
             return;
         }
-        currentVolume = newCurrentVolume;
-    }
-
-    public void decreaseVolume() {
-        if (currentVolume > 0) {
-            currentVolume -= 1;
-        } else {
-            currentVolume = 100;
-        }
+        this.currentVolume = currentVolume;
     }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation > 10) {
+    public void setCurrentStation(int currentStation) {
+        if (currentStation < 0) {
             return;
         }
-        if (newCurrentStation < 0) {
+        if (currentStation > maxStation) {
             return;
         }
-        currentStation = newCurrentStation;
+        this.currentStation = currentStation;
     }
 
     public void next() {
-        if (currentStation < 10) {
-            currentStation += 1;
-        } else {
-            currentStation = 0;
+        if (currentStation != maxStation) {
+            currentStation ++;
+            return;
         }
+        currentStation = 0;
     }
 
     public void prev() {
-        if (currentStation > 0) {
-            currentStation -= 1;
+        if (currentStation != 0) {
+            currentStation --;
         } else {
-            currentStation = 10;
+            currentStation = maxStation;
         }
     }
 }
