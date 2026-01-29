@@ -5,51 +5,70 @@ public class RadioTest {
     Radio more = new Radio();
 
     @Test
-    public void shouldVolumeMore() {
+    public void test() {
 
-        more.setCurrentVolume(95);
+        Radio more = new Radio(20);
+        more.setCurrentStation(15);
 
-        more.increaseVolume();
-
-        int expected = 96;
-        int actual = more.getCurrentVolume();
+        int expected = 15;
+        int actual = more.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldVolumeMore1() {
+    public void test1() {
+        Radio more = new Radio();
 
-        more.setCurrentVolume(100);
-
-        more.increaseVolume();
+        more.setCurrentStation(10);
 
         int expected = 0;
-        int actual = more.getCurrentVolume();
+        int actual = more.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldVolumeLess() {
+    public void test2() {
+        Radio more = new Radio();
 
-        more.setCurrentVolume(95);
+        more.setCurrentStation(9);
 
-        more.decreaseVolume();
+        int expected = 9;
+        int actual = more.getCurrentStation();
 
-        int expected = 94;
-        int actual = more.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test3() {
+        Radio more = new Radio();
+
+        more.setCurrentStation(-1);
+
+        int expected = 0;
+        int actual = more.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test4() {
+        Radio more = new Radio();
+
+        more.setCurrentStation(1);
+
+        int expected = 1;
+        int actual = more.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
 
 
     @Test
-    public void shouldVolumeLess1() {
+    public void shouldVolume() {
 
-        more.setCurrentVolume(0);
-
-        more.decreaseVolume();
+        more.setCurrentVolume(100);
 
         int expected = 100;
         int actual = more.getCurrentVolume();
@@ -57,8 +76,20 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
     @Test
-    public void shouldVolumeExceed() {
+    public void shouldVolume1() {
+
+        more.setCurrentVolume(99);
+
+        int expected = 99;
+        int actual = more.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldVolume2() {
 
         more.setCurrentVolume(101);
 
@@ -69,7 +100,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldVolumeExceed1() {
+    public void shouldVolume3() {
 
         more.setCurrentVolume(-1);
 
@@ -78,7 +109,6 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
 
     @Test
     public void shouldStationMore() {
@@ -92,10 +122,23 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
-
+//
+//
     @Test
     public void shouldStationMore1() {
+
+        more.setCurrentStation(10);
+
+        more.next();
+
+        int expected = 1;
+        int actual = more.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldStationMore2() {
 
         more.setCurrentStation(9);
 
@@ -110,11 +153,11 @@ public class RadioTest {
     @Test
     public void shouldStationLess() {
 
-        more.setCurrentStation(2);
+        more.setCurrentStation(1);
 
         more.prev();
 
-        int expected = 1;
+        int expected = 0;
         int actual = more.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -134,17 +177,6 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
-    @Test
-    public void shouldStationExceed() {
-
-        more.setCurrentStation(10);
-
-        int expected = 0;
-        int actual = more.getCurrentStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
 
     @Test
     public void shouldStationExceed1() {
